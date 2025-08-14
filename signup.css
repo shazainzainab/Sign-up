@@ -1113,7 +1113,7 @@ body {
     }
 
     .testimonials-section {
-        max-width: 90%;
+        max-width: 100%;
         padding: 15px;
         top: 200px;
     }
@@ -1591,3 +1591,4 @@ body {
         font-size: 9px;
     }
 }
+
