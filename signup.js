@@ -47,40 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-//testimonals section
-document.addEventListener('DOMContentLoaded', () => {
-    const wrapper = document.querySelector('.testimonials-wrapper');
-    const containers = document.querySelectorAll('.testimonials-container, .testimonials-container-bottom');
-    let currentIndex = 0;
-    const cardWidth = 425 + 25; // Card width (425px) + gap (25px)
-    const cardsPerView = 2; // Number of cards visible at a time
-    const totalCards = 4; // Total number of cards in each container
-    const maxIndex = totalCards - cardsPerView; // Maximum index for sliding
-
-    function slideTestimonials(direction) {
-        if (direction === 'left' && currentIndex < maxIndex) {
-            currentIndex++;
-        } else if (direction === 'right' && currentIndex > 0) {
-            currentIndex--;
-        }
-        const translateX = -currentIndex * cardWidth;
-        containers.forEach(container => {
-            container.style.transform = `translateX(${translateX}px)`;
-        });
-    }
-
-    wrapper.addEventListener('click', (e) => {
-        const rect = wrapper.getBoundingClientRect();
-        const clickX = e.clientX - rect.left;
-        const halfWidth = rect.width / 2;
-
-        if (clickX >= halfWidth) {
-            slideTestimonials('left'); // Click on right side, slide left
-        } else {
-            slideTestimonials('right'); // Click on left side, slide right
-        }
-    });
-});
 
 //fAQs
 document.querySelectorAll('.faq-icon-wrapper').forEach(item => {
