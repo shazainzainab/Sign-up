@@ -256,7 +256,7 @@ body {
     height: 48px;
     background: #FFFFFF;
     color: #156FEE;
-    border-radius: 50px;
+   border-radius: 50px;
     font-weight: 500;
     cursor: pointer;
     margin-top: 90px;
@@ -541,24 +541,28 @@ body {
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
-    margin-top: -1400px;
+    overflow: hidden;
 }
 
 .testimonials-title {
-    position: absolute;
     width: auto;
     height: 46px;
-    left: calc(50% - 418px/2 - 13px);
-    top: 1476px;
     font-family: 'Aeonik', sans-serif;
     font-weight: 700;
     font-size: 34px;
     line-height: 45px;
     display: flex;
+    justify-content: center;
     align-items: center;
     letter-spacing: 0.002em;
     color: #2F363F;
     white-space: nowrap;
+    margin-bottom: 40px;
+}
+
+.testimonials-wrapper {
+    overflow: hidden;
+    width: 100%;
 }
 
 .testimonials-container, .testimonials-container-bottom {
@@ -566,17 +570,16 @@ body {
     flex-direction: row;
     align-items: flex-start;
     gap: 25px;
-    position: absolute;
-    width: 2225px;
-    height: 337px;
-    left: -57px;
-    top: 1559px;
+    width: max-content;
+}
+
+.testimonials-container {
+    animation: slideLeftToRight 20s linear infinite;
 }
 
 .testimonials-container-bottom {
-    height: 356px;
-    left: -280px;
-    top: 1908px;
+    animation: slideRightToLeft 20s linear infinite;
+    margin-top: 40px;
 }
 
 .testimonial-card {
@@ -698,6 +701,29 @@ body {
     color: #2F363F;
 }
 
+@keyframes slideLeftToRight {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes slideRightToLeft {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Pause animation on hover */
+.testimonials-container:hover, .testimonials-container-bottom:hover {
+    animation-play-state: paused;
+}
+
 /* FAQs */
 .faq-section {
     display: flex;
@@ -709,7 +735,7 @@ body {
     width: 1486px;
     height: 467px;
     left: calc(50% - 1486px / 2);
-    margin-top: 2300px; /* Adjusted to place below testimonials-container-bottom (1908px + 356px + buffer) */
+    margin-top: 100px;
 }
 
 .faq-container {
@@ -1088,37 +1114,80 @@ body {
 
     .testimonials-section {
         max-width: 90%;
-        top: 450px;
+        padding: 15px;
+        top: 200px;
     }
 
     .testimonials-title {
-        top: 1200px;
-        width: 100%;
-        text-align: center;
-        left: 0;
         font-size: 28px;
+        margin-bottom: 30px;
     }
 
     .testimonials-container, .testimonials-container-bottom {
-        width: 100%;
-        left: 0;
-        top: 1300px;
-        flex-wrap: wrap;
-        justify-content: center;
-        height: auto;
-    }
-
-    .testimonials-container-bottom {
-        top: 1600px;
+        gap: 20px;
+        width: max-content;
     }
 
     .testimonial-card {
-        width: 100%;
-        max-width: 400px;
+        width: 360px;
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .user-info {
+        width: 160px;
+        height: 40px;
+        gap: 8px;
+    }
+
+    .user-image {
+        width: 36px;
+        height: 36px;
+    }
+
+    .user-details {
+        width: 116px;
+        height: 40px;
+    }
+
+    .user-name {
+        width: 100px;
+        font-size: 18px;
+        line-height: 26px;
+    }
+
+    .user-title {
+        width: 116px;
+        font-size: 11px;
     }
 
     .testimonial-text {
         width: 100%;
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    .strategies {
+        width: 200px;
+        height: 60px;
+        gap: 10px;
+    }
+
+    .strategies-title {
+        width: 140px;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .strategy-tags {
+        width: 200px;
+        height: 30px;
+        gap: 10px;
+    }
+
+    .strategy-tag {
+        padding: 5px 10px;
+        font-size: 14px;
     }
 
     .faq-section {
@@ -1127,7 +1196,7 @@ body {
         transform: none;
         padding: 0 20px;
         height: auto;
-        margin-top: 3400px; /* Adjusted for smaller screens */
+        margin-top: 280px;
     }
 
     .faq-container, .faq-section-heading, .faq-text-wrapper, .faq-heading-wrapper, .faq-descr-wrapper {
@@ -1250,22 +1319,77 @@ body {
 
     .testimonials-title {
         font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .testimonials-container, .testimonials-container-bottom {
+        gap: 15px;
     }
 
     .testimonial-card {
-        max-width: 350px;
+        width: 300px;
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .user-info {
+        width: 140px;
+        height: 36px;
+        gap: 6px;
+    }
+
+    .user-image {
+        width: 32px;
+        height: 32px;
+    }
+
+    .user-details {
+        width: 100px;
+        height: 36px;
     }
 
     .user-name {
-        font-size: 18px;
+        width: 90px;
+        font-size: 16px;
+        line-height: 24px;
     }
 
-    .user-title, .testimonial-text, .strategies-title, .strategy-tag {
-        font-size: 14px;
+    .user-title {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    .testimonial-text {
+        width: 100%;
+        font-size: 12px;
+        line-height: 140%;
+    }
+
+    .strategies {
+        width: 180px;
+        height: 50px;
+        gap: 8px;
+    }
+
+    .strategies-title {
+        width: 120px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .strategy-tags {
+        width: 180px;
+        height: 26px;
+        gap: 8px;
+    }
+
+    .strategy-tag {
+        padding: 4px 8px;
+        font-size: 12px;
     }
 
     .faq-section {
-        margin-top: 3300px; /* Adjusted for smaller screens */
+        margin-top: 300px;
     }
 
     .faq-headline {
@@ -1377,23 +1501,78 @@ body {
 
     .testimonials-title {
         font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    .testimonials-container, .testimonials-container-bottom {
+        gap: 10px;
     }
 
     .testimonial-card {
-        max-width: 100%;
+        width: 260px;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .user-info {
+        width: 120px;
+        height: 32px;
+        gap: 4px;
+    }
+
+    .user-image {
+        width: 28px;
+        height: 28px;
+    }
+
+    .user-details {
+        width: 80px;
+        height: 32px;
     }
 
     .user-name {
-        font-size: 16px;
+        width: 70px;
+        font-size: 14px;
+        line-height: 20px;
     }
 
-    .user-title, .testimonial-text, .strategies-title, .strategy-tag {
-        font-size: 12px;
+    .user-title {
+        width: 80px;
+        font-size: 9px;
+    }
+
+    .testimonial-text {
+        width: 100%;
+        font-size: 10px;
+        line-height: 130%;
+    }
+
+    .strategies {
+        width: 160px;
+        height: 40px;
+        gap: 6px;
+    }
+
+    .strategies-title {
+        width: 100px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .strategy-tags {
+        width: 160px;
+        height: 22px;
+        gap: 6px;
+    }
+
+    .strategy-tag {
+        padding: 3px 6px;
+        font-size: 10px;
     }
 
     .faq-section {
         padding: 0 10px;
-        margin-top: 1900px; /* Adjusted for smaller screens */
+        margin-top: 300px;
     }
 
     .faq-headline {
@@ -1409,6 +1588,6 @@ body {
     }
 
     .faq-content {
-        font-size: 11px;
+        font-size: 9px;
     }
 }
